@@ -1,0 +1,40 @@
+In order for the cards to work, they need to fit together in a "hand". I need to be able to replace the entire card, and access every value of the card.
+Plant
+fertilizer
+pesticide
+item
+all are considered "cards," each of a different "CardType."
+
+
+Wait.........
+
+CARD : Name
+ |
+ V
+Plant : int, str, int, int, int
+Fertilizer : int, int, int
+Pesticide : str, int
+Item : str, int
+
+class Card
+{
+    
+
+
+--------------------------------------------------------------------------------------------------
+
+Card{
+    struct CardType
+    {
+        Plant = 1,
+        Fertilizer,
+        Pesticide,
+        Item
+    };
+
+    int CardValue;
+
+}
+
+
+
