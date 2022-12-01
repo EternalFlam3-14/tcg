@@ -4,7 +4,7 @@
 
 void quick_test()
 {
-    int deck_s = 14, hand_s = 7, cash_s = 100;                  //  Game variable
+    int deck_s = 15, hand_s = 7, cash_s = 100;                  //  Game variable
 
     std::vector<std::shared_ptr<Player>> Ptrs;                  //  Player vector
     Shoe S1;
@@ -27,6 +27,13 @@ void quick_test()
     for (std::shared_ptr<Player> player : Ptrs)                 //  Play card for each player
     {
         player.get()->play_Card(random(0,hand_s));
+    }
+    for (std::shared_ptr<Player> player : Ptrs)                 //  Draw card for each player
+    {
+        if (S1.shoe_Size() > 0)
+        {
+            player.get()->Draw(6, S1.Draw());
+        }
     }
     for (std::shared_ptr<Player> player : Ptrs)                 //  Print hands for each player
     {

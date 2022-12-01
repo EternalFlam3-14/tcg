@@ -58,9 +58,11 @@ std::shared_ptr<Card_C> Deck_C::Draw()
     return out;
 }
 
-std::shared_ptr<Card_C> Deck_C::Draw(int pos)
+std::shared_ptr<Card_C> Deck_C::card_Pull(int pos)
 {
+    int size = deck_Size();
     std::shared_ptr<Card_C> out = deck.at(pos);
     deck.erase(deck.begin() + pos);
+    Resize(size);
     return out;
 }

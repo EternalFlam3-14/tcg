@@ -10,7 +10,7 @@ void Player::Draw(int pos, std::shared_ptr<Card_C> Card)
 
 void Player::play_Card(int pos)
 {
-    std::shared_ptr<Card_C> card = Hand.Draw(pos);
+    std::shared_ptr<Card_C> card = Hand.card_Pull(pos);
     Terminal.Say(card->get_Name());
 }
 
