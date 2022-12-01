@@ -23,7 +23,7 @@ public:
 
     void deck_Check();
 
-    Card_C card_At(int &pos) const { return (*deck.at(pos).get()); }
+    Card_C card_At(int &pos) const { if(deck.at(pos)){ return (*deck.at(pos).get()); } else { Card_C card; return card ; } }
 
     void card_Set(int &pos, std::shared_ptr<Card_C> card);
 
@@ -31,7 +31,7 @@ public:
 
     std::shared_ptr<Card_C> Draw();
 
-    std::shared_ptr<Card_C> Draw(int pos);
+    std::shared_ptr<Card_C> card_Pull(int pos);
 
 //                              Destructor
     

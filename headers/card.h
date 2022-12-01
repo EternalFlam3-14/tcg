@@ -22,6 +22,8 @@ public:
 //                                  PUBLIC
 
 //                              Constructor
+    Card_C() = default;
+
     Card_C(CardType cardtype, std::string string, int value) : Type(cardtype), String(string), Value(value) {};
 
 //                              Functions
