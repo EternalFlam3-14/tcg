@@ -18,7 +18,7 @@ public:
     Player(int handsize, int startcash) : cash(startcash), Hand(handsize) {};
 
 //                              Functions
-    void play_Card(int pos);
+    std::shared_ptr<Card_C> play_Card(int pos);
 
     void print_Hand();
 
@@ -37,7 +37,7 @@ public:
 //      Setters
     void Draw(int pos, std::shared_ptr<Card_C> Card);
 
-    auto set_Cash() { return cash; };
+    void set_Cash(int value) { cash = value; };
 
 private:
 //                                  PRIVATE

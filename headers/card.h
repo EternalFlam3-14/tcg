@@ -40,7 +40,6 @@ private:
     int Value;
     std::string String;
     CardType Type;
-
 };
 
 #endif

@@ -8,10 +8,11 @@ void Player::Draw(int pos, std::shared_ptr<Card_C> Card)
     Hand.card_Set(pos, Card);
 }
 
-void Player::play_Card(int pos)
+std::shared_ptr<Card_C> Player::play_Card(int pos)
 {
     std::shared_ptr<Card_C> card = Hand.card_Pull(pos);
     Terminal.Say(card->get_Name());
+    return card;
 }
 
 void Player::print_Hand()
