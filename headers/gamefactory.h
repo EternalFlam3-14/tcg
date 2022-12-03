@@ -4,10 +4,11 @@
 #include "game.h"
 #include <memory>
 
-class GameFactory
+class GameFactory_C
 {
 public:
-std::shared_ptr<Game> NewGame(int in);
+
+    std::shared_ptr<Game_C> new_Game(GameType type);
 
 };
 #endif

@@ -8,51 +8,58 @@
 #include "shoe.h"
 #include "garden.h"
 
-class Game  //  Base Class
+class Game_C  //  Base Class
 {
 public:
-
     virtual void Play() = 0;
 
-    void set_Players();
-
-    void next_Player();
-
-    Player get_Player();
-
-    void Draw(int i);
-
-    void draw_Hand();
 
 protected:
-
-    Shoe Shoe;
     Terminal_C Terminal;
-    int decksize, handsize, playercount, startingcash, currentplayer = 0;
-    bool gameEnd = false;
-    std::vector<std::shared_ptr<Player>> players;
+    int deck_s, hand_s, cash_s, pool;                           //  Game variables
+    std::vector<std::shared_ptr<Player>> Players;               //  Players go here
+    Shoe_C Shoe;                                                //  Dealer's decks are stored here
+};
+
+enum GameType
+{
+    Quick_Test = 0,
+    Debug,
+    Hemp_Ceed
 };
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-class Ceed : public Game
-{   //  Hemp Ceed++
+class HempCeed_C : public Game_C
+{
 public:
-    Ceed() { decksize = 14; handsize = 7, playercount = 1, startingcash = 100; };
     void Play() override;
-    
+
+
+private:
+
+
 };
 
-class Debug : public Game
-{   //  Debug Mode
+class Debug_C : public Game_C
+{
 public:
-    Debug() { decksize = 52; handsize = 7; playercount = 3, startingcash = 50; };
     void Play() override;
+
+
+private:
 };
 
-class Fib : public Game
-{   //  Fibbonacci Sequence
+class QuickTest_C : public Game_C
+{
 public:
     void Play() override;
+
+
+private:
+
+    int deck_s = 15, hand_s = 7, cash_s = 100, pool = 0;        //  Game variables
+    std::vector<std::shared_ptr<Card_C>> Playercards;           //  This is where played cards go
 };
+
 #endif

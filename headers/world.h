@@ -14,11 +14,9 @@ public:
 
 private:
 
-    int gameCount = 3;
-
     Terminal_C Terminal;
 
-    std::shared_ptr<Game> Game;
+    std::shared_ptr<Game_C> Game;
 
 };
 

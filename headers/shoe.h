@@ -7,7 +7,7 @@
 #include "deck.h"
 #include "card.h"
 
-class Shoe
+class Shoe_C
 {
 public:
 

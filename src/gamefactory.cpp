@@ -1,19 +1,26 @@
 #include "gamefactory.h"
 
 
-std::shared_ptr<Game> GameFactory::NewGame(int in)
+std::shared_ptr<Game_C> GameFactory_C::new_Game(GameType type)
 {
-    if (in == '1')
+    switch(type)
     {
-        return std::make_shared<Ceed>();
+        case Hemp_Ceed :
+        {
+            
+            return std::make_shared<HempCeed_C>();
+        }
+        case Debug :
+        {
+            return std::make_shared<Debug_C>();
+        }
+        case Quick_Test : 
+        {
+            return std::make_shared<QuickTest_C>();
+        }
+        default :
+        {
+            return nullptr;
+        }
     }
-    if (in == '2')
-    {
-        return std::make_shared<Debug>();
-    }
-    if (in == '3')
-    {
-        return std::make_shared<Fib>();
-    }
-    else return nullptr;
 }

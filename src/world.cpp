@@ -1,12 +1,11 @@
 #include "world.h"
-#include <math.h>
 #include <memory>
 
 
 
 World::World()
 {
-    GameFactory GameFactory;
+    GameFactory_C GameFactory;
 
     Terminal.Say(
 R"(~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -19,11 +18,11 @@ R"(~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~
 ~~~~            What game would you like to play?
 ~~~~~
-~~~~            1   Hemp Ceed++
+~~~~            1   Hemp Ceed
 ~~~~~
 ~~~~            2   Debug Mode
 ~~~~~
-~~~~            3   Fibonacci
+~~~~            3   Quick Test
 ~~~~~
 ~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~)");
@@ -33,10 +32,26 @@ R"(~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     {
         Terminal.In();
         char in = *Terminal.Get_Input().c_str();
-        if (std::isdigit(in) && std::stoi(&in) <= gameCount)
+        if (std::isdigit(in))
         {
-            Game = GameFactory.NewGame(in);
-            game_IsMade = true;
+            if (in == '1')
+            {
+                Game = GameFactory.new_Game(GameType::Hemp_Ceed);
+                game_IsMade = true;
+                Terminal.Say("Done!");
+            }
+            if (in == '2')
+            {
+                Game = GameFactory.new_Game(GameType::Debug);
+                game_IsMade = true;
+                Terminal.Say("Done!");
+            }
+            if (in == '3')
+            {
+                Game = GameFactory.new_Game(GameType::Quick_Test);
+                game_IsMade = true;
+                Terminal.Say("Done!");
+            }
         }
         else
         {
