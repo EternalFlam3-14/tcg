@@ -38,19 +38,16 @@ R"(~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             {
                 Game = GameFactory.new_Game(GameType::Hemp_Ceed);
                 game_IsMade = true;
-                Terminal.Say("Done!");
             }
             if (in == '2')
             {
                 Game = GameFactory.new_Game(GameType::Debug);
                 game_IsMade = true;
-                Terminal.Say("Done!");
             }
             if (in == '3')
             {
                 Game = GameFactory.new_Game(GameType::Quick_Test);
                 game_IsMade = true;
-                Terminal.Say("Done!");
             }
         }
         else
