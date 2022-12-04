@@ -9,13 +9,13 @@
 #include "toolbox.h"
 
 
-class Player
+class Player_C
 {
 public:
 //                                  PUBLIC
 
 //                              Constructor
-    Player(int handsize, int startcash) : cash(startcash), Hand(handsize) {};
+    Player_C(int handsize) : Hand(handsize) {};
 
 //                              Functions
     std::shared_ptr<Card_C> play_Card(int pos);
@@ -24,30 +24,39 @@ public:
 
     void check_Hand();
 
-    void print_Cash();
-
 //      Getters
 
     Card_C card_At(int i) const { return Hand.card_At(i); };
-
-    int get_Cash() const { return cash; }; 
 
     int hand_Size() { return Hand.deck_Size(); };
 
 //      Setters
     void Draw(int pos, std::shared_ptr<Card_C> Card);
 
-    void set_Cash(int value) { cash = value; };
-
-private:
-//                                  PRIVATE
+protected:
+//                                  PROTECTED
 
     Terminal_C Terminal;
 
     Deck_C Hand;
 
-    int cash;
+};
 
+class PaidPlayer_C : public Player_C
+{
+public:
+    
+    PaidPlayer_C(int handsize, int startcash) : Player_C(handsize), cash(startcash) {};
+
+    void print_Cash();
+
+    int get_Cash() const { return cash; }; 
+
+    void set_Cash(int value) { cash = value; };
+
+private:
+
+    int cash;
 
 };
 
