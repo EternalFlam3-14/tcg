@@ -18,30 +18,37 @@ R"(~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~
 ~~~~            What game would you like to play?
 ~~~~~
-~~~`            1   Hemp Ceed
+~~~~            1   Hemp Ceed
+~~~~~
+~~~~            2   Texas Hold 'Em
 ~~~~~
 ~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~)");
 
-    bool game_IsMade(false); 
-    while (!game_IsMade)
+    bool game_Made(false); 
+    while (!game_Made)
     {
         Terminal.In();
         char in = *Terminal.Get_Input().c_str();
         if (in == '1')
         {
             Game = GameFactory.new_Game(GameType::Hemp_Ceed);
-            game_IsMade = true;
+            game_Made = true;
         }
-        if (in == '~')
+        else if (in == '2')
+        {
+            Game = GameFactory.new_Game(GameType::Texas);
+            game_Made = true;
+        }
+        else if (in == '~')
         {
             Game = GameFactory.new_Game(GameType::Debug);
-            game_IsMade = true;
+            game_Made = true;
         }
-        if (in == '`')
+        else if (in == '`')
         {
             Game = GameFactory.new_Game(GameType::Quick_Test);
-            game_IsMade = true;
+            game_Made = true;
         }
         else
         {

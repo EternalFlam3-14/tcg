@@ -4,16 +4,16 @@
 #include <vector>
 #include <memory>
 
-void Garden::harvest_Card(int slotno, std::string *harvest_Type, int *harvest_Size)
+void Garden_C::harvest_Card(int slotno, std::string *harvest_Type, int *harvest_Size)
 {
 }
 
-void Garden::add_Card(std::shared_ptr<Card_C> in, int slotno)
+void Garden_C::add_Card(std::shared_ptr<HempCard_C> in, int slotno)
 {
-    if (!Slot[slotno].is_Planted)
+    if (!Slots[slotno].is_Planted)
     {
-        Slot[slotno].plant = in;
-        Slot[slotno].is_Planted = true;
+        Slots[slotno].plant = in;
+        Slots[slotno].is_Planted = true;
     }
     else { // Fail
     Terminal_C Terminal;
@@ -22,13 +22,13 @@ void Garden::add_Card(std::shared_ptr<Card_C> in, int slotno)
     set_Plants();
 }
 
-void Garden::remove_Card(int slotno)
+void Garden_C::remove_Card(int slotno)
 {
-    if (Slot[slotno].is_Planted)
+    if (Slots[slotno].is_Planted)
     {
-        Slot[slotno].plant = nullptr;
+        Slots[slotno].plant = nullptr;
 
-        if (Slot[slotno].plant){ // Fail
+        if (Slots[slotno].plant){ // Fail
             Terminal_C Terminal;
             Terminal.Say("Error deleting slot.");
         }
@@ -40,16 +40,16 @@ void Garden::remove_Card(int slotno)
     set_Plants();
 }
 
-void Garden::add_Fertilizer(std::shared_ptr<Card_C> in, int slotno)
+void Garden_C::add_Fertilizer(std::shared_ptr<HempCard_C> in, int slotno)
 {
 }
 
-void Garden::set_Plants()
+void Garden_C::set_Plants()
 {
     int temp(0);
     for (int i(0); i < slotsize; ++i)
     {
-        temp += card_At(i).get_Value();
+        temp += card_At(i)->get_Value();
     }
     plants = temp;
 }

@@ -20,8 +20,16 @@ void Player_C::print_Hand()
     Terminal.Say(R"(~~~~~)");
     for (int i(0); i < hand_Size(); i++)
     {
-        Terminal.Say(R"(~~~~            )" + int_toString(i+1) + "   " + Hand.card_At(i).get_Name() + R"(
+        if(Hand.card_At(i))
+        {
+            Terminal.Say(R"(~~~~            )" + int_toString(i+1) + "   " + Hand.card_At(i)->get_Name() + R"(
 ~~~~~)");
+        }
+        else
+        {
+            Terminal.Say(R"(~~~~            )" + int_toString(i+1) + "   " + R"(
+~~~~~)");
+        }
     }
     Terminal.Say(R"(~~~~~~)");
 }

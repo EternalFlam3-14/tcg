@@ -4,42 +4,78 @@
 #include <string>
 #include <variant>
 
-//                                  CARD TYPE
-enum CardType
-{
-    Empty = 0,
-    Plant,
-    Fertilizer,
-    Pesticide,
-    Lotto,
-    Item
-};
-
-//                                  BASE CARD
+    //  BASE CARD
 class Card_C
 {
 public:
-//                                  PUBLIC
 
-//                              Constructor
     Card_C() = default;
 
-    Card_C(CardType cardtype, std::string string, int value) : Type(cardtype), String(string), Value(value) {};
+    Card_C(int value) : Value(value) {};
 
-//                              Functions
-    CardType get_Type();
-    std::string get_Name();
-    std::string get_String();
+    virtual std::string get_Name() = 0;
+
     int get_Value();
-    bool type_Is(CardType type);
+
+protected:
+
+    int Value;
+};
+
+
+class HempCard_C : public Card_C
+{
+public:
+    enum cardType
+    {
+        Empty = 0,
+        Plant,
+        Fertilizer,
+        Pesticide,
+        Lotto,
+        Item
+    };
+
+    HempCard_C(cardType type, std::string string, int value) : Card_C(value), String(string), Type(type) {};
+
+    std::string get_Name() override;
+
+    cardType get_Type();
+    std::string get_String();
+    bool type_Is(cardType type);
+    
+
 
 private:
-//                                  PRIVATE
 
-//                                  Data
-    int Value;
+    cardType Type;
     std::string String;
-    CardType Type;
+
+};
+
+class StandardCard_C : public Card_C
+{
+public:
+    enum cardType
+    {
+        Empty = 0,
+        Spades,
+        Hearts,
+        Clubs,
+        Diamonds
+    };
+
+    StandardCard_C(cardType type, int value) : Card_C(value), Type(type) {};
+
+    std::string get_Name() override;
+
+    cardType get_Type();
+    bool type_Is(cardType type);
+    
+private:
+
+    cardType Type;
+
 };
 
 #endif

@@ -6,43 +6,39 @@
 #include "card.h"
 #include "toolbox.h"
 
+enum deckType
+{
+    Standard = 0,
+    Hemp
+};
+
 class Deck_C
 {
 public:
-//                                  PUBLIC
 
-//                              Constructor
-    Deck_C(int size) : deck(size) {};
-    
-//                              Functions
-    void Resize(int &size);
+    Deck_C(deckType type, int size) : Type(type), Deck(size) {};
 
-    void Populate();
+    void card_Set(int &pos, std::shared_ptr<Card_C> card);          //  Sets card at pos 
+    std::shared_ptr<Card_C> card_At(int &pos) const                 //  Const reference to card in hand
+    {               
+        if(Deck.at(pos)) {return Deck.at(pos);}
+        else{return nullptr;}
+    };
 
-    int deck_Size() { return deck.size(); };
+    std::shared_ptr<Card_C> card_Pull(int pos);                     //  Takes card from deck at pos
+    std::shared_ptr<Card_C> Draw();                                 //  Takes last card from deck
+    void card_Push(std::shared_ptr<Card_C> card) { Deck.push_back(card); }; // Will increase deck size
 
-    void deck_Check();
+    int deck_Size() { return Deck.size(); };                        //  Returns size of deck vector
+    void Resize(int &size);                                         //  Useful for the hand
+    void Populate();                                                //  Useful for the shoe
 
-    Card_C card_At(int &pos) const { if(deck.at(pos)){ return (*deck.at(pos).get()); } else { Card_C card; return card ; } }
+    void deck_Check();                                              //  Debug function
 
-    void card_Set(int &pos, std::shared_ptr<Card_C> card);
-
-    void card_Push(std::shared_ptr<Card_C> card) { deck.push_back(card); };
-
-    std::shared_ptr<Card_C> Draw();
-
-    std::shared_ptr<Card_C> card_Pull(int pos);
-
-//                              Destructor
-    
 private:
-//                                  PRIVATE
 
-    std::vector<std::shared_ptr<Card_C>> deck; // Reference using (*deck)
-
-   //               Tl;Dr   Deck.card_At(i)->type ugly, Deck.card_At(i).type pretty
-
-    /* I like the way the code looks when everything is referenced using periods, and it's easier to read the code that way instead of registering "pointer" vs "direct" when wanting the card. */
+    deckType Type;
+    std::vector<std::shared_ptr<Card_C>> Deck;
 
 };
 

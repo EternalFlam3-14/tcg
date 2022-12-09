@@ -11,7 +11,7 @@ class Shoe_C
 {
 public:
 
-    void new_Deck(int Decksize);
+    void new_Deck(deckType type, int Decksize);
 
     int shoe_Size() const { return shoe.size(); };
 

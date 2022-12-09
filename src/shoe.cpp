@@ -4,9 +4,9 @@
 
 #include "shoe.h"
 
-void Shoe_C::new_Deck(int Decksize)
+void Shoe_C::new_Deck(deckType type, int Decksize)
 {
-    shoe.push_back(std::make_shared<Deck_C>(Decksize));
+    shoe.push_back(std::make_shared<Deck_C>(type, Decksize));
     (*shoe.back()).Populate();
 }
 

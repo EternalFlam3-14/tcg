@@ -12,52 +12,97 @@
 class Player_C
 {
 public:
-//                                  PUBLIC
+    // Constructor: Initializes the player's hand with the specified deck type and number of cards
+    //  type: the type of deck the player's hand should be drawn from
+    //  handsize: the number of cards in the player's hand
+    Player_C(deckType type, int handsize) : Hand(type, handsize) {};
 
-//                              Constructor
-    Player_C(int handsize) : Hand(handsize) {};
-
-//                              Functions
+    // Plays the card at the specified position in the player's hand
     std::shared_ptr<Card_C> play_Card(int pos);
 
+    // Prints the player's current hand to the terminal
     void print_Hand();
 
+    // Debug Info
     void check_Hand();
 
-//      Getters
+    // Returns the card at the specified position in the player's hand
+    std::shared_ptr<Card_C> card_At(int i) const { return Hand.card_At(i); };
 
-    Card_C card_At(int i) const { return Hand.card_At(i); };
-
+    // Returns the number of cards in the player's hand
     int hand_Size() { return Hand.deck_Size(); };
 
-//      Setters
+    //  Draw a card at the specified position in the player's hand
     void Draw(int pos, std::shared_ptr<Card_C> Card);
 
-protected:
-//                                  PROTECTED
+    bool has_Folded() const { return Folded; };
 
+    void Fold() { Folded = !Folded; };
+
+protected:
+    
+    bool Folded = false;
+
+    //  Object for printing text to the terminal
     Terminal_C Terminal;
 
+    //  The player's current hand of cards
     Deck_C Hand;
 
 };
 
+//  Represents a player who has a balance of cash that they can bet with
 class PaidPlayer_C : public Player_C
 {
 public:
-    
-    PaidPlayer_C(int handsize, int startcash) : Player_C(handsize), cash(startcash) {};
+    //  Constructor
+    //  type: the type of deck the player's hand should be drawn from
+    //  handsize: the number of cards in the player's hand
+    //  startcash: the starting balance of cash for the player
+    PaidPlayer_C(deckType type, int handsize, int startcash) : Player_C(type, handsize), cash(startcash) {};
 
+    //  Prints the player's current balance of cash
     void print_Cash();
 
-    int get_Cash() const { return cash; }; 
+    //  Returns the player's current balance of cash
+    int get_Cash() const { return cash; }
 
-    void set_Cash(int value) { cash = value; };
+    //  Sets the player's balance of cash to the specified value
+    void set_Cash(int value) { cash = value; }
 
 private:
+    //  The player's current balance of cash
+    int cash = 0;
+};
 
-    int cash;
+//  Represents a player who has a balance of cash and a current bet amount
+class BetPlayer_C : public PaidPlayer_C
+{
+public:
+    //  Constructor
+    //  type: the type of deck the player's hand should be drawn from
+    //  handsize: the number of cards in the player's hand
+    //  startcash: the starting balance of cash for the player
+    BetPlayer_C(deckType type, int handsize, int startcash) : PaidPlayer_C(type, handsize, startcash) {}
 
+    //  Returns the player's current bet amount
+    int get_Bet() const { return bet; }
+
+    //  Sets the player's current bet amount to the specified value
+    void set_Bet(int value) { bet = value; }
+
+    //  Returns whether or not the player has folded
+    bool has_Folded() const { return Folded; }
+
+    //  Sets the player's fold status to the opposite of its current value
+    void Fold() { Folded = !Folded; }
+
+private:
+    // Whether or not this player has folded
+    bool Folded = false;
+
+    // The current bet amount for this player
+    int bet = 0;
 };
 
 #endif

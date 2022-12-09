@@ -18,6 +18,10 @@ std::shared_ptr<Game_C> GameFactory_C::new_Game(GameType type)
         {
             return std::make_shared<QuickTest_C>();
         }
+        case Texas :
+        {
+            return std::make_shared<Texas_C>();
+        }
         default :
         {
             return nullptr;
