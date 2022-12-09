@@ -203,12 +203,12 @@ void Texas_C::Play()
     int bigBlind;
     if (ss >> bigBlind && bigBlind > 0)
     {
-        set_Big_Blind(bigBlind);
+        set_Min_Bet(bigBlind);
     }
     else
     {
         Terminal.Say("Invalid input, defaulting to 10");
-        set_Big_Blind(10);
+        set_Min_Bet(10);
     }
 
     // Main game loop

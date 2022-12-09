@@ -6,8 +6,6 @@
 #include <memory>
 #include "player.h"
 #include "shoe.h"
-#include "garden.h"
-
 
 enum GameType
 {
@@ -68,7 +66,7 @@ private:
 
     void Bet(std::shared_ptr<BetPlayer_C> player);
 
-    void set_Big_Blind(int newBlind) { minBet = newBlind; };
+    void set_Min_Bet(int newminBet) { minBet = newminBet; };
 
     int get_Min_Bet() const { return minBet; };
 

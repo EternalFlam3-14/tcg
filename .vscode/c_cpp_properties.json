@@ -5,7 +5,10 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/headers/**",
-                "${workspaceFolder}/src/**"
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/engine/**",
+                "${workspaceFolder}/engine/headers/**",
+                "${workspaceFolder}/engine/src/**"
             ],
             "defines": [
                 "_DEBUG",
