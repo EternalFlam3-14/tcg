@@ -2,6 +2,7 @@
 #define GAMEFACTORY_H
 
 #include "game.h"
+#include "tex.h"
 #include <memory>
 
 class GameFactory_C

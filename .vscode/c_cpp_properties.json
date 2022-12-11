@@ -4,8 +4,14 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/headers/**",
-                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/tcg/games/tex/headers/**",
+                "${workspaceFolder}/tcg/games/tex/src/**",
+                "${workspaceFolder}/tcg/games/tex/**",
+                "${workspaceFolder}/tcg/games/**",
+                "${workspaceFolder}/tcg/tcg/headers/**",
+                "${workspaceFolder}/tcg/tcg/src/**",
+                "${workspaceFolder}/tcg/tcg/**",
+                "${workspaceFolder}/tcg/**",
                 "${workspaceFolder}/engine/**",
                 "${workspaceFolder}/engine/headers/**",
                 "${workspaceFolder}/engine/src/**"
