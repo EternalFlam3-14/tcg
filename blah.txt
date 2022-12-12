@@ -1,0 +1,32 @@
+Theoretically, if Players all have their own bets, then:
+P1 bet = 5 (call) (minbet = 5)
+P2 bet = 5 (call) (minbet = 5)
+P3 bet = 10 (raise) (minbet = 10)
+P4 bet = 10 (call) (minbet = 10)
+
+The two players who HAVEN'T called the new bet have a lower bet value that the MIN_BET
+
+So, how does this work? Each player bets. After the bet has completed, the comuter has to check and make sure everyone's on the current bet. That means that the AI's extra for loop is right.
+
+Everyone draws, then there's an iterator that's:
+
+for (auto player : Players)
+{
+    if (player.min_bet < min_bet)
+    {
+        Bet(player);
+    }
+}
+
+That can be inside a bigger function that looks like this:
+
+Texas_C::Bet_Round()
+{
+    for (auto player : Players)
+    {
+        if (!player.folded)
+        {
+            bet(player);
+        }
+    }
+}

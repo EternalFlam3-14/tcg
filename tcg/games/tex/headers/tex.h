@@ -11,11 +11,11 @@ private:
 
     void Bet(std::shared_ptr<BetPlayer_C> player);
 
-    void set_Min_Bet(int newminBet) { minBet = newminBet; };
+    void set_min_Bet(int new_minBet) { min_Bet = new_minBet; };
 
-    int get_Min_Bet() const { return minBet; };
+    int get_min_Bet() const { return min_Bet; };
 
-    int pool = 0, minBet = 0;
+    int pool = 0, min_Bet = 0, big_Blind = 0, new_Bet = 0;
     std::vector<std::shared_ptr<Card_C>> Table;
-    bool gameEnd = false;
+    bool End = false;
 };
