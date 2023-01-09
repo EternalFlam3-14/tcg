@@ -6,7 +6,7 @@ P4 bet = 10 (call) (minbet = 10)
 
 The two players who HAVEN'T called the new bet have a lower bet value that the MIN_BET
 
-So, how does this work? Each player bets. After the bet has completed, the comuter has to check and make sure everyone's on the current bet. That means that the AI's extra for loop is right.
+So, how does this work? Each player bets. After the bet has completed, the computer has to check and make sure everyone's on the current bet. That means that the AI's extra for loop is right.
 
 Everyone draws, then there's an iterator that's:
 

@@ -52,34 +52,11 @@ void Deck_C::Populate()
         std::random_shuffle(cards.begin(), cards.end());
 
         // Assign the cards to the deck
-        for (int i(0); i < deck_Size(); i++)
-        {
+        for (int i(0); i < deck_Size(); i++)        //  This section works, but needs to be refactored
+        {                                           //  All this can happen directly in the Deck vector
             Deck.at(i) = cards.at(i);
         }
     }
-    // if (Type == Standard)
-    // {
-    //     for (int i(0); i < deck_Size(); i++)
-    //     {
-    //         int r = random(1, 4);
-    //         if (r == 1)
-    //         {
-    //             Deck.at(i) = std::make_shared<StandardCard_C>(StandardCard_C::Clubs, random(1,13));
-    //         }
-    //         if (r == 2)
-    //         {
-    //             Deck.at(i) = std::make_shared<StandardCard_C>(StandardCard_C::Spades, random(1,13));
-    //         }
-    //         if (r == 3)
-    //         {
-    //             Deck.at(i) = std::make_shared<StandardCard_C>(StandardCard_C::Hearts, random(1,13));
-    //         }
-    //         if (r == 4)
-    //         {
-    //             Deck.at(i) = std::make_shared<StandardCard_C>(StandardCard_C::Diamonds, random(1,13));
-    //         }
-    //     }
-    // }
 }
 
 void Deck_C::deck_Check()

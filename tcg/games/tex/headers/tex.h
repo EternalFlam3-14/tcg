@@ -1,5 +1,13 @@
 #include "game.h"
 
+enum Phase_C
+{
+    Flop = 0,
+    Turn,
+    River
+};
+
+
 class Texas_C : public Game_C
 {
 public:
@@ -9,7 +17,22 @@ public:
 
 private:
 
+    // High level dealing feature. Takes arguments "Flop", "Turn", and "River"
+    void Deal(Phase_C Phase);
+
+    // High level betting feature, handles fold, all-in, raise, etc.
+    void BetPhase();
+
+    // Low level bet feature, to be used in larger function
     void Bet(std::shared_ptr<BetPlayer_C> player);
+
+    // Handles confirmation and sets the bool
+    bool AllIn(std::shared_ptr<BetPlayer_C> player);
+
+    // Low level raise feature, to be used in larger function
+    void Raise(std::shared_ptr<BetPlayer_C> player);
+
+    void Showdown();
 
     void set_min_Bet(int new_minBet) { min_Bet = new_minBet; };
 

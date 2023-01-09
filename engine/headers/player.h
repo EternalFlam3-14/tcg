@@ -35,13 +35,7 @@ public:
     //  Draw a card at the specified position in the player's hand
     void Draw(int pos, std::shared_ptr<Card_C> Card);
 
-    bool has_Folded() const { return Folded; };
-
-    void Fold() { Folded = !Folded; };
-
 protected:
-    
-    bool Folded = false;
 
     //  Object for printing text to the terminal
     Terminal_C Terminal;
@@ -92,14 +86,23 @@ public:
     void set_Bet(int value) { bet = value; }
 
     //  Returns whether or not the player has folded
-    bool has_Folded() const { return Folded; }
+    bool has_Folded() const { return folded; }
 
     //  Sets the player's fold status to the opposite of its current value
-    void Fold() { Folded = !Folded; }
+    void Fold() { folded = !folded; }
+
+    //  Returns whether or not the player has gone all in
+    bool is_allIn() const { return allIn; };
+
+    //  Sets the player's all in status to the opposite of its current value
+    void all_In() { allIn = !allIn; };
 
 private:
     // Whether or not this player has folded
-    bool Folded = false;
+    bool folded = false;
+
+    // Whether or not the player has gone all-in
+    bool allIn = false;
 
     // The current bet amount for this player
     int bet = 0;
