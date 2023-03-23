@@ -6,14 +6,7 @@
 #include <memory>
 #include "player.h"
 #include "shoe.h"
-
-enum GameType
-{
-    Quick_Test = 0,
-    Debug,
-    Texas,
-    Hemp_Ceed
-};
+#include "gameenum.h"
 
 
 class Game_C                                                        //  Base Class
