@@ -94,11 +94,6 @@ void Game_C::draw_Card(std::shared_ptr<Player_C> player, int pos)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void HempCeed_C::Play()
-{
-    
-}
-
 void Debug_C::Play()                                                //  Allows interaction, better test
 {
     new_Deck();                                                     //  Add a deck to the shoe

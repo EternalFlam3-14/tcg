@@ -7,6 +7,9 @@
                 "${workspaceFolder}/tcg/games/tex/headers/**",
                 "${workspaceFolder}/tcg/games/tex/src/**",
                 "${workspaceFolder}/tcg/games/tex/**",
+                "${workspaceFolder}/tcg/games/hempceed/headers/**",
+                "${workspaceFolder}/tcg/games/hempceed/src/**",
+                "${workspaceFolder}/tcg/games/hempceed/**",
                 "${workspaceFolder}/tcg/games/**",
                 "${workspaceFolder}/tcg/tcg/headers/**",
                 "${workspaceFolder}/tcg/tcg/src/**",
@@ -23,10 +26,10 @@
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl.exe",
-            "cStandard": "c17",
+            "cStandard": "c23",
             "cppStandard": "c++20",
             "intelliSenseMode": "windows-msvc-x64",
-            "configurationProvider": "ms-vscode.cmake-tools"
+            "configurationProvider": "go2sh.cmake-integration"
         }
     ],
     "version": 4

@@ -1,3 +1,5 @@
+#ifndef TEX_H
+#define TEX_H
 #include "game.h"
 
 enum Phase_C
@@ -42,3 +44,6 @@ private:
     std::vector<std::shared_ptr<Card_C>> Table;
     bool End = false;
 };
+
+
+#endif

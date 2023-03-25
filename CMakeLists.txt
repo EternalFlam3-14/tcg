@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.1.0)
 set (CMAKE_CXX_STANDARD 20)
 project(tcg VERSION 0.1.0)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/app)
+
 set(TCG_SOURCE_DIR ${CMAKE_SOURCE_DIR}/tcg/tcg/src)
 set(TCG_HEADERS_DIR ${CMAKE_SOURCE_DIR}/tcg/tcg/headers)
 
@@ -28,6 +30,7 @@ target_include_directories(tcg PUBLIC
 )
 target_link_libraries(tcg PUBLIC Engine)
 target_link_libraries(tcg PUBLIC Texas)
+target_link_libraries(tcg PUBLIC Hemp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

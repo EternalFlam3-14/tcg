@@ -35,19 +35,6 @@ protected:
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-class HempCeed_C : public Game_C
-{
-public:
-    HempCeed_C() {  };
-
-    void Play() override;
-
-
-private:
-
-
-};
-
 class Debug_C : public Game_C
 {
 public:

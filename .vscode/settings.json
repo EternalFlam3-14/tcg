@@ -70,5 +70,5 @@
         "xutility": "cpp"
     },
     "git.ignoreLimitWarning": true,
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "enabledIfIncludesResolve"
 }
