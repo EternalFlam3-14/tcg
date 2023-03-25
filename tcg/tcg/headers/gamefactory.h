@@ -3,6 +3,7 @@
 
 #include "game.h"
 #include "tex.h"
+#include "hempceed.h"
 #include <memory>
 
 class GameFactory_C
