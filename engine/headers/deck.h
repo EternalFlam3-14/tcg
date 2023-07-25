@@ -1,6 +1,7 @@
 #ifndef DECK_H
 #define DECK_H
 
+#include <algorithm>
 #include <vector>
 #include <memory>
 #include "card.h"

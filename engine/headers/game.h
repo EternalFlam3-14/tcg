@@ -19,12 +19,12 @@ public:
 protected:
 
     void clamp_Card(int &pos);                                      //  Clamps pos within the hand size
-    void draw_Card(std::shared_ptr<Player_C> player, int pos);      //  Draws a card from shoe
+    virtual void draw_Card(std::shared_ptr<Player_C> player, int pos);//  Draws a card from shoe
 
-    void new_Deck();                                                //  Adds deck to the shoe
+    virtual void new_Deck();                                        //  Adds deck to the shoe
 
-    void set_Players();                                             //  Determines playertype
-    void set_Hands();                                               //  Draws from shoe to fill hand
+    virtual void set_Players();                                     //  Determines playertype
+    virtual void set_Hands();                                       //  Draws from shoe to fill hand
 
     Terminal_C Terminal;                                            //  Interface
     GameType gametype;                                              //  Determines cardtype & playertype
@@ -44,6 +44,9 @@ public:
 
 
 private:
+
+    void set_Players();
+
     std::vector<std::shared_ptr<Card_C>> Cards;                     //  Played cards
     int pos, largest_val = 0, winnerindex = 0;                      //  Game variables
     bool gameEnd = false;                                           //  Controls game loop

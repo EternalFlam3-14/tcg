@@ -1,5 +1,4 @@
 #include "game.h"
-#include <algorithm>
 
 void Game_C::set_Players()
 {

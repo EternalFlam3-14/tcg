@@ -29,7 +29,7 @@
             "cStandard": "c23",
             "cppStandard": "c++20",
             "intelliSenseMode": "windows-msvc-x64",
-            "configurationProvider": "go2sh.cmake-integration"
+            "configurationProvider": "ms-vscode.cpptools"
         }
     ],
     "version": 4

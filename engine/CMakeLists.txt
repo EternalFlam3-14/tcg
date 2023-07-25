@@ -13,7 +13,6 @@ add_library(Engine STATIC ${ENG_SRCS})
 target_include_directories(Engine PRIVATE .)
 
 include_directories(
-    ${ENGINE_SOURCE_DIR},
     ${ENGINE_HEADERS_DIR}
 )
 
